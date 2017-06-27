@@ -1,0 +1,18 @@
+
+<md-dialog aria-label="Mango (Fruit)"> 
+	<md-content class="md-padding"> 
+		<form name="userForm"> 
+			<div layout layout-sm="row"> 
+				<md-input-container flex> 
+				<label>E-mail</label> 
+				<input ng-model="email" placeholder="E-mail"> 
+				</md-input-container> 
+			</div> 
+		</form> 
+	</md-content> 
+	<div class="md-actions" layout="row"> 
+		<span flex></span> 
+		<md-button ng-click="cancel()"> Cancel </md-button> 
+		<md-button ng-click="answer()" class="md-primary"> Add friend </md-button> 
+	</div>
+</md-dialog>

@@ -1,0 +1,42 @@
+<layout="column" layout-fill layout-padding>
+          <div class="inset" hide-sm></div>
+            <ng-switch on="data.selectedIndex" class="tabpanel-container">
+              <div role="tabpanel"
+                   aria-labelledby="tab1"
+                   ng-switch-when="0"
+                   layout="row" layout-align="center center">
+                  <md-card flex-gt-sm="90" flex-gt-md="80">
+                    <md-card-content>
+                      <h2>Transactions {{ (id != -1 ? " with " + $root.friends[$root.Mid[id]].Name : "") }} </h2>
+                      <md-list>
+                        <md-item ng-repeat="item in txn.transactions | filter:search">
+                          <a href="" style="text-decoration: none; color:inherit;">
+                          <md-item-content md-ink-ripple>
+                            <div class="md-tile-left inset" hide-sm>
+                                <user-avatar></user-avatar>
+                            </div>
+                            <div class="md-tile-content">
+                              <h3 md-highlight-text = "search.name"> <b>Name :</b>{{" " + item.name}}</h3>
+                              <h3>Date : {{" " + getDate(item.time)}}</h3>
+                              <h3>Time : {{ " " + getTime(item.time) }}</h3>
+                              <h3>{{ (item.value > 0 ? "You paid him" : "He paid you") + " " + getAbs(item.value)}}</h4>
+                            </div>
+                          </md-item-content>
+                          </a>
+                          <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
+                          <md-divider hide-gt-sm ng-if="!$last"></md-divider>
+                        </md-item>
+                        <md-divider></md-divider>
+                        <md-item layout class="inset">
+                            <md-button layout layout-align="start center" flex class="md-primary">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg> More
+                            </md-button>
+                        </md-item>
+                      </md-list>
+                    </md-card-content>
+                  </md-card>
+              </div>            
+          </ng-switch>
+      </md-content>
+    </div>
+

@@ -1,0 +1,32 @@
+<div style="margin-top: 80px; margin-left: auto; margin-right: auto;margin-bottom:200px;">
+<div class="login-card">
+    <h1>Log-in</h1><br>
+  <form name="myForm">
+    <div ng-hide = "OTP || loading">
+    <input type="text" name="user" placeholder="Email Id" ng-model ="userid" ng-pattern="emailFormat" required>
+    <input type="submit" name="login" class="login login-submit" value="Send OTP" ng-click="sendOTP()">
+    </div>    
+    <div class="login-help">
+    <span class="error" ng-show="myForm.user.$error.required">
+    Required!
+    </span><br/>
+    <span class="error" ng-show="myForm.user.$error.pattern">
+    Not valid email!
+    </span>
+    </div>
+    <div ng-show = "OTP">
+        <div style="margin : 0px 110px"> <h5> {{ mint }} : {{ secs }} </h5></div>
+    <label><h3> {{ userid }} </h3></label>
+    <input type="password" name="pass" placeholder="One Time Password" ng-model="userOTP">
+    <input type="submit" name="login" class="login login-submit" value="Login" ng-click="verifyOTP()">
+    </div>
+    <div ng-show = "loading">
+    <div style="margin : 0px 110px"> <h2> Please wait while we send you OTP. </h2>
+    </div>
+  </div>    
+  </form>
+  <div class="login-help">
+    <a href="" ng-show="OTP" ng-click="reset()" target="_self">Wrong Email ID</a>
+  </div>
+</div>
+</div>
